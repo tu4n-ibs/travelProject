@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        font-family: 'Poppins',sans-serif;
+    }
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<body>
+<div>
+    <div>
+        <a th:href="@{/createTour}" style="margin-right: 10px">add new tour</a>
+        <a th:href="@{/admin}">back</a>
+    </div>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>picture</th>
+            <th>price</th>
+            <th>transport</th>
+            <th>transportPrice</th>
+            <th>benefits</th>
+            <th>act</th>
+        </tr>
+        <tr th:each=" row : ${listTour}">
+            <td th:text="${row.id}"></td>
+            <td th:text="${row.name}"></td>
+            <td th:text="${row.picture}"></td>
+            <td th:text="${row.price}"></td>
+            <td th:text="${row.transport}"></td>
+            <td th:text="${row.transportPrice}"></td>
+            <td th:text="${row.benefits}"></td>
+            <td><a th:href="@{/{id}/updateTour(id=${row.getId()})}">update</a></td>
+        </tr>
+    </table>
+    <a href="" th:if="${listTour.hasPrevious()}" th:href="@{'admin'(page=${listTour.number - 1})}" style="cursor: pointer">previous</a>
+    <span th:text="${listTour.number + 1}"></span>/<span th:text="${listTour.totalPages}"></span>
+    <a href="" th:if="${listTour.hasNext()}" th:href="@{'admin'(page=${listTour.number + 1})}" style="cursor: pointer">next</a>
+</div>
+</body>
+</html>

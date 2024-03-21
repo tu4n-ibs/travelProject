@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        font-family: 'Poppins',sans-serif;
+    }
+</style>
+<body>
+<table th:object="${userOrder}">
+    <tr>
+        <h1 th:text="${userOrder.name}"></h1>
+    </tr>
+    <tr>
+        <td><spam th:text="${userOrder.address}"></spam></td>
+    </tr>
+    <tr>
+        <td><span th:text="${userOrder.email}"></span></td>
+    </tr>
+    <tr>
+        <td>
+            <span th:text="${userOrder.phoneNumber}"></span>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

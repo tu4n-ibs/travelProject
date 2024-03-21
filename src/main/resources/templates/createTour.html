@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table,th,td{
+        border: 1px solid;
+    }
+    *{
+        font-family: 'Poppins',sans-serif;
+    }
+</style>
+<body>
+<div>
+    <form th:action="@{/tour}" method="post">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Picture</th>
+                <th>Price</th>
+                <th>Transport</th>
+                <th>TransportPrice</th>
+                <th>Benefits</th>
+            </tr>
+            <tr th:object="${newTour}">
+                <td><input type="text" th:field="*{name}" required></td>
+                <td><input type="file" th:field="*{picture}" required></td>
+                <td><input type="text" th:field="*{price}" required></td>
+                <td><input type="text"  th:field="*{transport}" required></td>
+                <td><input type="text" th:field="*{transportPrice}" required></td>
+                <td><input type="text"  th:field="*{benefits}"></td>
+            </tr>
+        </table>
+        <input type="submit" value="save">
+    </form>
+    <a th:href="@{/findAllTour}">back</a>
+</div>
+</body>
+</html>

@@ -8,6 +8,7 @@ public class TravelProjectApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TravelProjectApplication.class, args);
+        System.out.println("http://localhost:8080/travel");
     }
 
 }
